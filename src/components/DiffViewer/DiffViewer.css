@@ -1,0 +1,37 @@
+.diff-viewer{
+
+    margin-top:40px;
+
+}
+
+.diff-output{
+
+    border:1px solid #ddd;
+
+    padding:20px;
+
+    background:white;
+
+    border-radius:8px;
+
+    white-space:pre-wrap;
+
+    font-family:monospace;
+
+    line-height:1.7;
+
+}
+
+.added{
+
+    background:#b8ffb8;
+
+}
+
+.removed{
+
+    background:#ffb8b8;
+
+    text-decoration:line-through;
+
+}

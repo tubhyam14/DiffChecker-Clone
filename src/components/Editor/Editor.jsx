@@ -1,19 +1,25 @@
 import "./Editor.css";
 
-export default function Editor({title}){
+export default function Editor({
+    title,
+    value,
+    onChange
+}) {
 
-    return(
+    return (
 
         <div className="editor">
 
             <h3>{title}</h3>
 
             <textarea
-                placeholder="Type or paste text here..."
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                placeholder="Type or paste text..."
             />
 
         </div>
 
-    )
+    );
 
 }

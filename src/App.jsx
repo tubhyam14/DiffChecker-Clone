@@ -1,31 +1,71 @@
+import { useState } from "react";
+
 import "./App.css";
 
 import Header from "./components/Header/Header";
 import Toolbar from "./components/Toolbar/Toolbar";
 import Editor from "./components/Editor/Editor";
+import DiffViewer from "./components/DiffViewer/DiffViewer";
 
-function App(){
+function App() {
+  const [leftText, setLeftText] = useState("");
+  const [rightText, setRightText] = useState("");
+  const [compareNow, setCompareNow] = useState(false);
 
-    return(
+  function handleCompare() {
+    setCompareNow(true);
+  }
 
-        <div className="app">
+  function handleClear() {
+    setLeftText("");
+    setRightText("");
+    setCompareNow(false);
+  }
+  
+  function mergeLeftToRight() {
+  setRightText(leftText);
+}
 
-            <Header/>
+function mergeRightToLeft() {
+  setLeftText(rightText);
+}
+  return (
+    <div className="app">
 
-            <Toolbar/>
+      <Header />
 
-            <div className="editor-container">
+      <Toolbar
+        onCompare={handleCompare}
+    onClear={handleClear}
+    onMergeLeft={mergeLeftToRight}
+    onMergeRight={mergeRightToLeft}
+      />
 
-                <Editor title="Original"/>
+      <div className="editor-container">
 
-                <Editor title="Modified"/>
+        <Editor
+          title="Original"
+          value={leftText}
+          onChange={setLeftText}
+        />
 
-            </div>
+        <Editor
+          title="Modified"
+          value={rightText}
+          onChange={setRightText}
+        />
 
-        </div>
+      </div>
 
-    )
+      {compareNow && (
+        <DiffViewer
+          leftText={leftText}
+          rightText={rightText}
+        />
+      )}
 
+    </div>
+  );
 }
 
 export default App;

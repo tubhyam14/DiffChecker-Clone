@@ -1,21 +1,28 @@
 import "./Toolbar.css";
 
-export default function Toolbar(){
+export default function Toolbar({
+  onCompare,
+  onMergeLeft,
+  onMergeRight,
+  onClear,
+}) {
+  return (
+    <div className="toolbar">
+      <button onClick={onCompare}>
+        Compare
+      </button>
 
-    return(
+      <button onClick={onMergeLeft}>
+        Merge Left
+      </button>
 
-        <div className="toolbar">
+      <button onClick={onMergeRight}>
+        Merge Right
+      </button>
 
-            <button>Compare</button>
-
-            <button>Merge →</button>
-
-            <button>← Merge</button>
-
-            <button>Clear</button>
-
-        </div>
-
-    )
-
+      <button onClick={onClear}>
+        Clear
+      </button>
+    </div>
+  );
 }
