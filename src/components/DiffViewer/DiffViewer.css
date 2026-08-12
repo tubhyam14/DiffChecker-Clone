@@ -1,37 +1,207 @@
-.diff-viewer{
+.diff-viewer {
+    margin: 30px 20px;
+}
 
-    margin-top:40px;
+.diff-title {
+    margin-bottom: 12px;
+}
+
+.diff-title h2 {
+    margin: 0;
+    font-size: 22px;
+    color: #1f2937;
+}
+
+.diff-title p {
+    margin: 4px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+
+.diff-table {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+
+
+.diff-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: #f3f4f6;
+
+    border-bottom: 1px solid #d1d5db;
+}
+
+.diff-header > div {
+    padding: 10px 14px;
+
+    font-weight: 600;
+    font-size: 14px;
+
+    color: #374151;
+}
+
+.diff-header > div:first-child {
+    border-right: 1px solid #d1d5db;
+}
+
+
+
+.diff-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    min-height: 28px;
+
+    font-family: monospace;
+    font-size: 14px;
+
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.diff-row:last-child {
+    border-bottom: none;
+}
+
+
+
+.diff-cell {
+    display: flex;
+
+    min-width: 0;
+
+    border-right: 1px solid #eeeeee;
+}
+
+.diff-cell:last-child {
+    border-right: none;
+}
+
+
+
+.line-number {
+    width: 45px;
+
+    flex-shrink: 0;
+
+    padding: 4px 8px;
+
+    text-align: right;
+
+    color: #9ca3af;
+
+    background: #f9fafb;
+
+    user-select: none;
+}
+
+
+
+.line-text {
+    flex: 1;
+
+    padding: 4px 10px;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+
+    color: #1f2937;
+}
+
+
+/* Removed line */
+
+.diff-row.removed .diff-cell:first-child {
+    background: #fff1f2;
+}
+
+.diff-row.removed .diff-cell:first-child .line-number {
+    background: #ffe4e6;
+    color: #be123c;
+}
+
+.diff-row.removed .diff-cell:first-child .line-text {
+    color: #9f1239;
+}
+
+
+
+.diff-row.added .diff-cell:last-child {
+    background: #f0fdf4;
+}
+
+.diff-row.added .diff-cell:last-child .line-number {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.diff-row.added .diff-cell:last-child .line-text {
+    color: #166534;
+}
+
+
+
+.diff-cell.empty {
+    background: #f9fafb;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .diff-viewer {
+        margin: 20px 10px;
+    }
+
+    .diff-row {
+        font-size: 12px;
+    }
+
+    .line-number {
+        width: 35px;
+        padding-left: 4px;
+        padding-right: 5px;
+    }
+
+    .line-text {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
 
 }
 
-.diff-output{
-
-    border:1px solid #ddd;
-
-    padding:20px;
-
-    background:white;
-
-    border-radius:8px;
-
-    white-space:pre-wrap;
-
-    font-family:monospace;
-
-    line-height:1.7;
-
+.inline-removed {
+    background: #fecaca;
+    color: #991b1b;
+    text-decoration: line-through;
+    border-radius: 2px;
 }
 
-.added{
-
-    background:#b8ffb8;
-
+.inline-added {
+    background: #bbf7d0;
+    color: #166534;
+    border-radius: 2px;
 }
 
-.removed{
+.inline-removed {
+    background: #fecaca;
+    color: #991b1b;
+    text-decoration: line-through;
+    border-radius: 2px;
+    padding: 1px 0;
+}
 
-    background:#ffb8b8;
-
-    text-decoration:line-through;
-
+.inline-added {
+    background: #bbf7d0;
+    color: #166534;
+    border-radius: 2px;
+    padding: 1px 0;
 }
